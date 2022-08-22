@@ -1,0 +1,64 @@
+.i18nl10n_lang_style_iso .i18nl10n_iso {display: inline; }
+.i18nl10n_lang_style_iso .i18nl10n_label {display: none; }
+.i18nl10n_lang_style_iso .i18nl10n_flag {display: none; }
+
+.svg-inline--fa {
+    display: inline-block;
+    font-size: inherit;
+    height: 1em;
+    overflow: visible;
+    vertical-align: -.125em;
+}
+.svg-inline--fa.fa-w-16 {
+    width: 1em;
+}
+
+// TIMER
+.AT__timer{display: flex;justify-content: center; align-items: center; position: absolute;top: 0;left: 50%;transform: translateX(-50%);}
+.AT__timer__counters{ font-size: 3em; font-size: clamp(2.8em,6vw,6vw); @extend .ft-exo; font-weight: bold; margin: 1em 0; display: flex; position: relative; transition: opacity 1s; white-space: nowrap;}
+.AT__timer__localeDateString{ position: absolute; bottom: 105%; font-size: 0.18em; color: red; margin-left: .45em; opacity: 0.2;}
+.AT__timer__counter{display: inline-block; position: relative; line-height: 1; min-width: 2ch;
+	&:empty{display: none;}
+	&+&{margin-left: 0.30ch;}
+	&:not(:last-child):after{display: inline-block; content:":"; margin-left: 0.30ch;}
+	&:before{display: block; content: attr(data-helper); font-size: 0.2em; position: absolute; top: 98%; left: 0.45em; opacity: 0.6;}
+	&.days{color: $primary;}
+	&.hours{}
+	&.minutes{}
+	&.seconds{opacity: 0.6;}
+}
+.AT__timer__video{ opacity: 0; transition: opacity 1s; transition-delay: 0.8s; pointer-events: none;}
+
+.AT__timer__wrapper{ position: relative;
+	&[data-mode="timer"]{
+        .AT__messages{display: none;}
+		.AT__timer__video{transition: none;}
+	}
+	&[data-mode="video"]{
+		.AT__timer__counters{opacity: 0; pointer-events: none;}
+		.AT__timer__video{opacity: 1; pointer-events: all;}
+	}
+}
+
+
+// MISC
+#select_lang+.select2-container{min-width: 100px;}
+
+#loader{ 
+	display: none;   
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    z-index: 1000;
+    opacity: 1;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vw;
+    &.active{display: flex;}
+    svg {
+    	opacity: 0.65;
+    }
+}
