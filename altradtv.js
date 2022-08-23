@@ -1,6 +1,7 @@
 // IMPORT IMG
 import AT__hero from './img/header_bg.jpg';
-document.getElementById('AT__hero').src = AT__hero;
+if (document.getElementById('AT__hero')) 
+	document.getElementById('AT__hero').src = AT__hero;
 
 $(function(){
 	if($('.AT__timer').length){
